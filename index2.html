@@ -1,0 +1,79 @@
+<!DOCTYPE html5>
+<html>
+
+<head>
+   
+    <link href='https://fonts.googleapis.com/css?family=Bodoni Moda' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Big Shoulders Text' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Averia Serif Libre' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Artifika' rel='stylesheet'>
+    <style>
+        body {
+            background-image: url("perc.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+
+        input {
+            padding: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            width: 20%;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            font-weight: bolder;
+            background-color: rgba(255, 255, 255, 0.562);
+            color: black;
+            border: 2px solid #4CAF50;
+        }
+
+        button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div
+            style="margin-top:15%;margin-left:20%;margin-right:20%;background-color: rgba(205, 228, 255, 0.623);padding: 20px 0px;">
+            <h1 style="font-family: 'Artifika';font-size: 52px;font-weight: bolder;">PERCENTAGE CONVERTER</h1>
+            <h3 style="font-family: 'Averia Serif Libre';font-size: 22px;">ENETR YOUR CGPA AND SUBMIT</h3>
+            <form>
+                <input id="cgpa" type="number" step="0.1"><br>
+                <h5 style="color: red;font-size: 20px;">* Enter proper CGPA (0 - 10)</h5><br>
+
+                <button type="button" onclick="s1()">SUBMIT</button>
+            </form>
+            <h2 id="result" style="font-family: 'Bodoni Moda';">YOUR PERCENTAGE :</h2>
+        </div>
+    </center>
+    <script>
+        var cgpa, per;
+        function s1() {
+            if (document.getElementById("cgpa").value == "") {
+                document.getElementById("result").innerHTML = "Please enter CGPA";
+                return;
+            }
+            cgpa = Number(document.getElementById("cgpa").value);
+            if (cgpa > 10) {
+                window.alert("RANGE MUST BE 0 to 10");
+                document.getElementById("result").innerHTML = "YOUR PERCENTAGE : "
+                document.getElementById("cgpa").value = ""
+                return;
+            }
+            per = cgpa * 9.5
+            document.getElementById("result").innerHTML = "YOUR PERCENTAGE : " + per.toPrecision(4);
+        }
+    </script>
+</body>
+
+</html>

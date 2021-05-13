@@ -1,0 +1,151 @@
+<!DOCTYPE html5>
+<html>
+
+<head>
+    <title>CGPA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link href='https://fonts.googleapis.com/css?family=Alatsi' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Volkhov' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=ZCOOL XiaoWei' rel='stylesheet'>
+    <style>
+        body {
+            background-image: url("b1.jpg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        form,h2 {
+            font-weight: 900;
+            text-align: center;
+            padding: 3px;
+            font-family: 'ZCOOL XiaoWei';
+            font-size: 22px;
+            color: rgb(255, 255, 255);
+
+        }
+        input,option{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <br><br>
+        <h1 style=" font-family: 'Volkhov';font-size: 52px;text-align:center;color: tomato;">CHECK CGPA</h1>
+
+        <form>
+            <center>
+                <h2>USN</h2>
+                <input type="text" name="usn" class="form-control" placeholder="ENTER USN"
+                    style="margin:10px;width:300px;" id="usn">
+                    <h2>TOTAL SEM</h2>
+                    <select class="form-control" id="sem" style="margin:10px;width:300px;" >
+                        <option disabled selected >SELECT SEM</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                    </select> 
+               <br>
+            </center>
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-3">
+                            <h2>SEM 1<input type="text" name="s1" class="form-control" placeholder="SEM 1" 
+                                    id="se1">
+                            </h2><br>
+                            <h2>SEM 2<input type="text" name="s2" class="form-control" placeholder="SEM 2" 
+                                    id="se2">
+                            </h2><br>
+                            <h2>SEM 3<input type="text" name="s3" class="form-control" placeholder="SEM 3" 
+                                    id="se3">
+                            </h2><br>
+                            <h2>SEM 4<input type="text" name="s4" class="form-control" placeholder="SEM 4" 
+                                    id="se4">
+                            </h2><br>
+                            </div>
+                            <div class="col-sm-3">
+                            <h2>SEM 5<input type="text" name="s5" class="form-control" placeholder="SEM 5" 
+                                    id="se5">
+                            </h2><br>
+                            <h2>SEM 6<input type="text" name="s6" class="form-control" placeholder="SEM 6" 
+                                    id="se6">
+                            </h2><br>
+                            <h2>SEM 7<input type="text" name="s7" class="form-control" placeholder="SEM 7" 
+                                    id="se7">
+                            </h2><br>
+                            <h2>SEM 8<input type="text" name="s8" class="form-control" placeholder="SEM 8" 
+                                    id="se8">
+                            </h2><br>
+                            </div>
+                            </div>
+                            <center>
+                            <input type="reset"  class="btn btn-outline-info btn-lg" id="SUBMIT"
+                            style="margin: 20px;font-family: 'Volkhov';font-size: 22px">
+                            <button type="button" name="submit" class="btn btn-outline-warning btn-lg" id="SUBMIT"
+                            style="margin: 20px;font-family: 'Volkhov';font-size: 22px" onclick="calculate()">SUBMIT</button>
+                        
+                            </center>
+                            <br><br>
+                            <h2 style="font-size: 40px;color: orangered;">CGPA</h2>
+                            <input type="text" style="font-family: 'Alatsi';font-size: 22px;" name="s8" class="form-control" placeholder="SEM 8"  id="cgpa">
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+<script>
+    function calculate(){
+        if(document.getElementById("usn").value==""){
+            alert("Please enter USN");
+            return;
+        }
+        if(document.getElementById("sem").value=="SELECT SEM"){
+            alert("Please select sem");
+            return;
+        }
+var total=Number(document.getElementById("sem").value);
+
+  var a=[0,0,0,0,0,0,0,0];
+  a[0]=Number(document.getElementById("se1").value);
+   a[1]=Number(document.getElementById("se2").value);
+   a[2]=Number(document.getElementById("se3").value);
+   a[3]=Number(document.getElementById("se4").value);
+   a[4]=Number(document.getElementById("se5").value);
+   a[5]=Number(document.getElementById("se6").value);
+   a[6]=Number(document.getElementById("se7").value);
+   a[7]=Number(document.getElementById("se8").value);
+   console.log(total,a[0]);
+   var cgpa=0;
+   for(var i=0;i<total;i++){
+       if(a[i]<=0 ||a[i]>10){
+           alert("PLEASE ENTER PROPER VALUE AT FIELD NO"+(i+1));
+           return;
+       }
+       console.log(a[i],cgpa);
+    cgpa+=a[i];
+   
+   }
+   
+   console.log(cgpa);
+   cgpa/=total;
+   document.getElementById("cgpa").value=cgpa;
+}
+</script>
+    </div>
+</body>
+
+</html>
